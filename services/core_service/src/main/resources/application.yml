@@ -1,32 +1,15 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   application:
     name: core-service
 
-museum:
-  width: 20
-  height: 15
-  floors: 2
+core:
+  websocket:
+    path: /ws
 
-grid:
-  size: 3
-  overlap: 0.5
-
-ann:
-  top-k: 5
-  metric: cosine
-  score-threshold: 0.75
-
-app:
-  qdrant:
-    url: http://localhost:6333
-    collection: fingerprints
-    vector-size: 8
-    distance: Cosine
-
-  mqtt:
-    broker: tcp://localhost:1883
-    topic: location/updated
-    client-id: core-1
+  positioning:
+    base-url: http://localhost:8081
+    endpoint: /internal/positioning/readings
+    timeout-ms: 1500
